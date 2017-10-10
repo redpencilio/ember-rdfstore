@@ -1,26 +1,37 @@
 # ember-rdfstore
 
-This README outlines the details of collaborating on this Ember addon.
+[rdfstore](https://www.npmjs.com/package/rdfstore) as an injectable Ember Service.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ember-rdfstore`
-* `npm install`
+```bash
+ember install ember-rdfstore
+```
 
-## Running
+## Usage
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+Inject the `rdfstore` service and use it as you would use the [rdfstore](https://www.npmjs.com/package/rdfstore) library.
 
-## Running Tests
+```javascript
+export default Ember.Component.extend({
+  rdfstore: Ember.inject.service(),
+  actions: {
+    executeQuery(query) {
+      this.get('rdfstore').load('text/turtle', ttl, 'http://mu.semte.ch/application', (err, results) => {
+        ...
+      }
+    }
+  }
+```
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+The following methods are available on the `rdfstore` service and will be proxied to the native store:
+* clear
+* delete
+* execute
+* executeWithEnvironment
+* graph
+* insert
+* load
+* node
 
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+The native store from the `rdfstore` library is directly accessible through `rdfstore.content`.
