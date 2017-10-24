@@ -16,10 +16,10 @@ Inject the `rdfstore` service and use it as you would use the [rdfstore](https:/
 export default Ember.Component.extend({
   rdfstore: Ember.inject.service(),
   actions: {
-    executeQuery(query) {
-      this.get('rdfstore').load('text/turtle', ttl, 'http://mu.semte.ch/application', (err, results) => {
+    load(ttl) {
+      this.get('rdfstore').load('text/turtle', ttl, 'http://mu.semte.ch/application').then( (results) => {
         ...
-      }
+      });
     }
   }
 ```
