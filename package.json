@@ -1,9 +1,12 @@
 {
-  "name": "ember-rdfstore",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "name": "@redpencil/ember-rdfstore",
+  "version": "0.1.0",
+  "description": "Ember addon wrapping the rdfstore-js library.",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "sparql",
+    "graphs",
+    "rdfstore"
   ],
   "license": "MIT",
   "author": "",
@@ -16,6 +19,10 @@
     "build": "ember build",
     "start": "ember server",
     "test": "ember try:each"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/redpencilio/ember-rdfstore"
   },
   "dependencies": {
     "ember-cli-babel": "^6.3.0"
